@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+  <h1>Edit Campground</h1>
+  <form
+    class="needs-validation"
+    novalidate
+    action="/campgrounds/<%=c.id%>?_method=PUT"
+    method="POST"
+  >
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="campground[name]"
+        value="<%=c.name%>"
+        required
+      />
+      <div class="invalid-feedback">This field is required.</div>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="campground[location]"
+        value="<%=c.location%>"
+        required
+      />
+      <div class="invalid-feedback">This field is required.</div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="3"
+        name="campground[description]"
+        required
+      >
+<%=c.description%></textarea
+      >
+      <div class="invalid-feedback">This field is required.</div>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Image Url</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image"
+        name="campground[image]"
+        value="<%=c.image%>"
+        required
+      />
+      <div class="invalid-feedback">This field is required.</div>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="campground[price]"
+        step="0.01"
+        placeholder="0.00"
+        value="<%=c.price.toFixed(2)%>"
+      />
+    </div>
+    <button class="btn btn-success mb-3">Submit</button>
+  </form>
+  <a href="/campgrounds">All Campgrounds</a>
+</div>
+<script>
+  (function () {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".needs-validation");
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

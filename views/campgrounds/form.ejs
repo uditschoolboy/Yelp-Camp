@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/campgrounds" method="POST">
+      <div>
+        <label for="name">Name</label>
+      </div>
+      <div>
+        <input type="text" name="name" value=<%=c.name%>> </>
+      </div>
+      <div>
+        <label for="location">location</label>
+      </div>
+      <div>
+        <input type="text" name="location" />
+      </div>
+      <div>
+        <label for="price">price</label>
+      </div>
+      <div>
+        <input type="number" name="price" />
+      </div>
+      <div>
+        <label for="description">description</label>
+      </div>
+      <div>
+        <input type="text" name="description" />
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
